@@ -1,0 +1,571 @@
+\documentclass[14pt]{report}
+\setlength{\topmargin}{-0.8in}
+\setcounter{secnumdepth}{3}
+
+\usepackage{float}
+\usepackage[bottom]{footmisc}% footer
+\usepackage{url}%embed URLS
+\usepackage{hyperref}	% links in pdf
+\usepackage{graphicx}	% Figures
+\usepackage[lined,linesnumbered,algochapter]{algorithm2e} % Algorithm-Environment
+\usepackage[printonlyused,withpage]{acronym} % acronyms
+\usepackage{pgf}					
+\usepackage{tikz}					% tikz graphics
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{blindtext}
+\usetikzlibrary{arrows,automata}
+\renewcommand{\baselinestretch}{4}
+\usepackage{longtable}
+\usepackage[sectionbib]{chapterbib}
+\usepackage{fancyhdr, graphicx}
+\newcommand \MYLINESPREAD{2}
+\linespread{\MYLINESPREAD}
+\newcommand \MYLONGTABLELINESPREAD{1.0}
+\newcommand \MORELINE {1}
+
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage{minibox}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage[strict]{changepage}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\pgfplotsset{width=11cm,compat=1.9}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\renewcommand{\headrulewidth}{0pt}
+\topmargin = -10 mm \oddsidemargin = 0 mm \evensidemargin = 0 mm
+\headheight = 10 mm \headsep = 0 mm \textheight = 230 mm
+\textheight = 228.6 mm \textwidth=160 mm
+ 
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+\begin{titlepage}
+
+\title{\Huge\textbf{Digitization And Up gradation of
+Lubrication Oil Hydraulic Bench}}
+
+\author{RIZWANULLAH (FA16-BEE-051)\\WALEED NIAZ (FA16-BEE-054)\\MANSOOR AHMAD (FA16-BEE-030)\\MAJID ALI KHAN (FA16-BEE-033)}
+
+\end{titlepage}
+\maketitle
+
+\begin{abstract}
+  Applying a substance such as oil or grease to an engine or other machinery such that to reduce friction and allow smooth movement is known as Lubrication. The difference between one lubricating material and another is often the difference between successful operation of a machine and failure. Modern machinery, engines and other equipment must be lubricated in order to prolong their lifetime. We are working on an Oil Hydraulic and lubrication bench that is used for the lubrication and hydraulic test of an engine. This machine or test bench was not working correctly due to some reasons. The machine was not functioning automatically, the oil which was used for lubrication should be heated up to a specific temperature range therefore the oil temperature must not pass the required temperature range therefore its temperature needed to be controlled, and there was also difficulty in taking readings on the analogue temperature gauge. We are going to upgrade the temperature sensor and temperature gauge. We have also proposed a solution for controlling the temperature of the oil furnace. After the completion of this project the machine will operate at desired level of temperature. And it will thus work properly and automatically.
+\end{abstract}
+
+\renewcommand{\abstractname}{Acknowledgement}
+
+\begin{abstract}
+The author wishes to say Alhamdulillah! Quotes, I would like to thank our supervisor for providing us
+opportunity to work on this industrial project to implement our knowledge and experience to work in a
+ﬁeld project. Author adds that by the prayers and motivation of my parents and teachers we choose to
+work on this Industrial project at Heavy Industries Taxila (HIT).
+
+\end{abstract}
+
+\tableofcontents\listoffigures\listoftables
+\newpage
+
+\chapter{\textbf{Introduction}}
+
+In this project we are working on an industrial machine which is used for the Lubrication and hydraulic
+test of an engine. This machine is malfunctioned due to some reasons, thus we are going to upgrade and
+make it working. There are few problems and diﬃculties in operating this Oil Hydraulic machine.
+
+\section{\textbf{ Motivation}}
+
+In our country there is a very lack of development we are very behind in the race of technology from
+all the developed countries. Thus no one focuses on the ease of an individual and delivering easiness to
+the labours and workers in an industry. Thus we want to upgrade the present machine from analogue
+to digital, and provide automation of the machine so one can operate is easily. As well as digitalization
+provides accuracy of data reading.
+
+\section{\textbf{Objective}}
+
+The main goal of the project is to
+\begin{itemize}
+  \item Digitization and Up-gradation of the thermostat sensor
+  \item Digitization and Up-gradation of the temperature gauge (panel)
+  \item We want to control the temperature of the oil heater of the machine would not heat the oil from beyond the desired (set) limit
+  \item We will decide to use either a sensor, Arduino or a PID Controller for controlling the temperature
+\end{itemize}
+
+\section{\textbf{Methodology}}
+    
+For performing this project ﬁrst of all we would do research the literature for this project, and will
+try to run the machine in the present condition so that we can contemplate the existing fault and
+problem, afterward we will do online research for selecting a valid and appropriate sensor and temperature
+controller that must be eﬃcient and reliable as well. Then by selecting a valid sensor we will do schematic
+implementation on a software to check if the sensor is valid for our system or not. The next step will be
+the hardware implementation, which is very interesting. We will add the sensor in the system and will
+do voltage transformation of the sensor by adding a step-up transformer as the machine is 3-phase AC
+machine. Then we will dry run the sensor and check the output on a Bulb or LED, etc., instead of the
+system. Which is a safety precaution for our machine. Thus by checking the output if it was valid then
+we will connect the sensor with the system and will run the machine and check the output.
+
+\section{\textbf{Organization of Report}}
+
+Chapter 2 covers the background material and literature reviewed to understand the intricacies of an
+Oil hydraulic Machine which is used for lubrication and to understand the meaning of lubrication at
+industrial level. 
+
+Chapter 3 then speciﬁes the lists of extracted requirements for the project development.
+These requirements are categorized into several groups on the basis of their functionality. Requirements
+are also prioritized to explain their importance and enable the user to shift them according to his needs.
+
+Chapter 4 describes the design formulated for the successful execution of the suggested techniques.
+The design explains the architecture of the whole machine and block diagrams of the machine. In the end,
+this chapter gives detailed information for each module, explaining their critical methods and properties
+required for successful execution.
+
+Chapter 5 explains the approach taken and issues confronted while implementing the intended goals.
+It explains the temporal stages experienced while implementing the design, and also the key functions that
+needs special consideration from the viewpoint of implementation. In the end, the author has explained
+the synchronization of the upgraded sensors with the machine, and the details of each component how it
+is handled and used.
+
+The testing and evaluation of the implemented sensors and software schematic is discussed in Chapter
+6. It explains the testing procedure followed and then the various types of tests executed on the application
+to conﬁrm its proper functioning and meeting the acceptance criteria. The results of these tests are
+summarized in the end, with possible results concluded from these tests [2]. In the end, we brieﬂy present
+the conclusions from this project and also the possible future improvements and additions for better
+design/implementation and investigation of the given test bench.
+
+\chapter{\textbf{Literature Review}}
+\section{\textbf{Literature Review}}
+
+We need to lubricate the moving parts of an engine, which are constantly in friction. It thus reduces
+friction which, if left unchecked, tends to increase part wear. The energy lost through combustion and
+the friction between mechanical parts causes the engine temperature to rise. Lubrication provided by the
+engine oil helps to partly address the heat through the lubrication circuit. It supplements the coolant,
+which can only cool certain parts of the engine. Microscopic deposits build up in the engine and remain
+in suspension. They can consist of dust or combustion residue. Without Lubrication, the residue would
+clog the engine and decrease its performance. The lubrication, after certain time continuously causes
+to increase the engine life. There are thesis and details about lubrication and engine oil in the given
+references. We have searched online about the lubrication system and diﬀerent sensors which are going
+to be used in the up-gradation of our test bench shown in figure~\ref{fig:Figure1}.[1]
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {Figure1.JPG}
+    \caption{Hydraulic Test Bench}
+    \label{fig:Figure1}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+We have searched diﬀerent thermostats, thermocouples, temperature controllers, PID Controllers,
+switches, Relays for this purpose. We have contacted diﬀerent online sellers and learnt about the com
+ponents and sensors that are needed for our project.[2]
+
+\chapter{\textbf{Requirements Specification}}
+
+In our project we are going to Digitize and Upgrade the Lubrication and Oil Hydraulic Bench. This project
+requires to change the analog gauge to the digital gauge in order to get better results and accuracy. And
+we have to stop the heater of the oil hydraulic Bench. The requirements for this particular are temperature
+controllers, PID Controllers, switches, Relays for controlling temperature. In the ﬁrst step we did our
+background search on this project. The second step is to build hardware and do troubleshooting to
+remove any errors.
+
+The Non-functional and Functional Requirements are categorized into various groups based on rela
+tions and objective of requirements.
+
+\section{\textbf{Non-functional Requirements}}
+
+\subsection{\textbf{Product requirements}}
+
+Table \ref{table:3.1} presents the product requirements with their priority and other details.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| c | c | c | }
+\hline
+ ID & Priority & Details \\ 
+\hline
+ NR-01-001 & 1 & Platform: PID Controller \\  
+\hline
+ NR-01-002 & 1 & Language: Matlab \\
+\hline
+NR-01-003 & 1 &Compiler: Simulink Matlab \\  
+\hline
+NR-01-004 & 1 & Usability: It is quite easy to operate \\  
+\hline
+NR-01-005 & 2 & Portability: The project is at industrial level and can’t be moved
+that easily \\  
+\hline
+NR-01-006 & 2 & Space: It can cover a lot of area according to requirement \\     
+\hline
+\end{tabular}
+\end{center}
+\caption{Product Requirements}
+\label{table:3.1}
+\end{table}
+
+\subsection{\textbf{Organizational Requirements}}
+
+The organizational requirements are as tabulated in Table \ref{table:3.2}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | }
+\hline
+ ID & Priority & Details \\ 
+\hline
+ NR-01-001 & 1 & Delivery: The system development process and deliverable documents\\ 
+     &     &    shall conform to the process and deliverables defined in the document\\ 
+     &     &    CIIT-CE-02H Degree Project Students Handbook \\ \hline
+ NR-01-002 & 1 & Standard: The standard of the final product shall be of undergraduate level or above. \\  
+\hline
+\end{tabular}
+\end{center}
+\caption{Organizational Requirements}
+\label{table:3.2}
+\end{table}
+
+\subsection{\textbf{External Requirements}}
+
+The external requirements are as tabulated in Table \ref{table:3.3}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ | c | c | c | }
+\hline
+ ID & Priority & Details \\ 
+\hline
+ NR-01-001 & 3 &Security: No strict security requirements. \\ \hline
+ NR-01-002 & 1 &Ethical: The application will not use any type of  \\
+     &     &    un-ethical electronic material while project development and execution\\   \hline
+NR-01-003 & 1 &Legislative: No plagiarism will be done. No violations of copy \\  
+     &     &    rights.\\ \hline
+NR-01-004 & 1 & Safety: The application shall not use any private or confidential data,  \\    
+     &     &    or network information that may infringe copyrights and/or\\ 
+     &     &    confidentiality of any personnel not directly involved in this product. \\ \hline
+\end{tabular}
+\end{center}
+\caption{External Requirements}
+\label{table:3.3}
+\end{table}
+
+\section{\textbf{Functional Requirements}}
+
+\subsection{\textbf{Category-1}}
+
+Category-1 of Fundamental Requirements are shown in Table \ref{table:3.4}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| c | c | c | }
+\hline
+ ID & Priority & Details \\ 
+\hline
+ FR-01-001 & 1 & Designing a circuit on Simulink \\  
+\hline
+ FR-01-002 & 1 & Simulation of a design \\
+\hline
+FR-01-003& 1 & Analyzing the results \\  
+\hline
+FR-01-004 & 1 & Practical implementation of the design \\  
+\hline
+\end{tabular}
+\end{center}
+\caption{Functional Requirements Category-1}
+\label{table:3.4}
+\end{table}
+
+\subsection{\textbf{Category-2}}
+
+Following requirements should be met under given priorities in Table \ref{table:3.5}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| c | c | c | }
+\hline
+ ID & Priority & Details \\ 
+\hline
+ FR-01-001 & 1 & Literature Review of the whole lubrication system and diﬀerent\\
+     &     &    temperature sensors\\   
+\hline
+ FR-01-002 & 1 & Selecting a special and valid temperature sensor for the system \\
+\hline
+FR-01-003& 1 & Creating a schematic of the sensor with the system \\  
+\hline
+FR-01-004 & 1 & Synchronization of the whole system and checking the output \\  
+     &     &    result\\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Functional Requirements Category-2}
+\label{table:3.5}
+\end{table}
+
+\chapter{\textbf{Project design}}
+
+\section{\textbf{Methodology}}
+
+In this section we will show the methodology used to process the project. Following is the block diagram~\ref{fig:figure2} of the whole process:
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure2.jpg}
+    \caption{Methodology}
+    \label{fig:figure2}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+\section{\textbf{Architecture Overview}}
+Following figure~\ref{fig:figure3}  is the architecture overview of our project:
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure3.jpg}
+    \caption{Architecture overview}
+    \label{fig:figure3}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+
+\section{\textbf{Design Description}}
+
+Each component of the project and their role in the project is described below:
+
+\subsection{\textbf{Thermocouple}}
+
+Thermocouple senses the temperature of the liquid i.e., oil, water etc. And gives output to the Temperature controller through feedback process.~\ref{fig:figure4}
+
+\textbf{Specs:}
+Thermocouple PT100 waterproof sensor for temperature controller corrosion protection acid resistant 0~300 Celsius
+
+\begin{itemize}
+\item Type: K
+\item Cable length: 1 Meter (3.28 ft)
+\item Range: 0~300 Celsius
+\end{itemize}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure4.jpg}
+    \caption{Thermocouple}
+    \label{fig:figure4}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+\subsection{\textbf{PID Controller}}
+
+We set temperature on the PID controller on which we are required to stop the process of heating of the oil. Thermocouple gives feedback constantly from heater to PID controller and when the set value is reached the PID controller gives output to relay. shown in figure~\ref{fig:figure5}
+
+\textbf{Specs:}
+
+\begin{itemize}
+\item Display type: Digital
+\item Sampling cycle: 0.5 Sec
+\item Resolution: 14 bit
+\item Accuracy: ± 0.01
+\item Max Measuring Temperature: 120°C and above
+\end{itemize}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure5.jpg}
+    \caption{PID Controller }
+    \label{fig:figure5}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+\subsection{\textbf{Relay}}
+
+Relay take input from the PID Controller and switches the heater off on the required set value as shown in figure~\ref{fig:figure6}
+
+\textbf{Specs:}
+
+\begin{itemize}
+\item Solid State Relay Digital 220V PID solid state relay max.40A SSR 
+\item Output Voltage: 24-380V AC
+\end{itemize}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure6.jpg}
+    \caption{Rely}
+    \label{fig:figure6}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+
+
+\newpage
+
+\chapter{\textbf{Implementation}}
+
+We have implemented the suggested design using the development stages given below
+
+\section{\textbf{Development Stages}}
+
+Following were the discrete phases we have experienced incrementally to realize our product in the given time:
+
+\subsection{\textbf{Creating Schematic and Simulation}}
+
+We first of all implemented the project on the Matlab Simulink software to visualize the process schematically. We found the solution about how we are going to implement the whole system. We generated a block diagram of the whole process using Simulink. 
+
+\subsection{\textbf{Installing Temperature sensor}}
+
+We made a frame and installed all the components i.e. PID controller, switches, thermocouple, heat sink, relay etc. Then we run the system and checked the output, all the components were functioning correctly. This was the module including all the major components of our project.
+
+\subsection{\textbf{Synchronizing the system}}
+
+We then presented our module to the HIT and asked permission to synchronize our module with the test bench. Therefore we got permission and HIT allowed us to connect our module with the machine. Therefore with the help of their one staff member we connected our module with the machine.
+
+
+\subsection{\textbf{Running the machine with new system}}
+
+As we already described, machine was depending on our PID module and could not be unit-tested without communicating to them properly. After connecting both systems together we started the machine and set the temperature on PID controller. The heating process of the oil started and the feedback from the temperature sensor comes to the input of PID controller. As the required set point of the heating process reached the PID switched off the heater from further heating by giving pulse to relay.
+
+\section{\textbf{System Integration}}
+
+The next step followed was to integrate everything together. All stages discussed above to be combined and constitute a single product. The external module was connected with the test bench (Machine). And all the connection were made, and project was ready to execute as discussed above.
+
+\subsection{\textbf{PID Controller}}
+
+We used PID Controller REX-C700. Which is the core of our project as it is used on industry level so we need a strong and perfect quality component because in industries the machines and modules are used on daily basis therefore we choose a pre-programmed PID Controller as shown in the figure (design description). 
+
+\vspace{3mm}
+
+There are inputs and outputs for AC voltage, thermocouple, relay and Alarm. There are buttons on front panel for changing values, modes, and calibrating the temperature sensor and PID Controller. We also included the user interface for the self-alignment of the PID controller manually. PID controller is show in figure~\ref{fig:figure5}
+
+\section{\textbf{User Interface}}
+
+User Interface is an extremely important consideration for any project that requires human-machine interaction. However, this project doesn’t require human machine interaction and therefore the PID runs solely in the background without any user interference. Besides this fact, there are also options to display the current temperature, calibrate the sensor, and select many modes of operation from the front panel of PID controller. The user interface is shown below ~\ref{fig:figure7}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure7.jpg}
+    \caption{User Interface}
+    \label{fig:figure7}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+\newpage
+\chapter{\textbf{Evaluation}}
+
+We have focused on thorough testing through-out the design and implementation phase. While testing the project we adopted two methods. First unit testing and then function testing.
+
+\section{\textbf{Unit Testing}}
+
+In unit testing phase we tested the whole PID controller circuit and components. The circuit starts operating and we were able to visualize the temperature which is sensed by the thermocouple. We then calibrated the thermocouple sensor with the actual temperature through physical (analogue) thermometer. Then we checked the thermocouple and working of the relay by changing the temperature of a simple bucket of water and visualize the results.
+
+\section{\textbf{Function Testing}}
+
+When we integrated the system with the test bench (machine). Both systems together started working together. The thermocouple sensor was dipped in the oil Heater reservoir to visualize the changing temperature of the oil. As the heating process of the oil starts and the pulse from the temperature sensor starts coming to the input of PID controller. And at the required set point on the PID controller, the PID gives pulse to relay and the relay switches off the heater and oil doesn’t heats beyond the limit.  
+
+\subsection{\textbf{Testing Requirements }}
+
+Table \ref{table:6.1} shows the testing of the project in cycles.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| c | c | c | c | }
+\hline
+ Requirements Tested & CYCLE 1 & CYCLE 2 & Final Status \\ 
+\hline
+ FR-01-001 & OK & OK & OK \\  
+\hline
+ FR-01-002 & FAILED & OK & OK \\
+\hline
+FR-01-003& OK & OK & OK \\  
+\hline
+FR-01-004 & OK & OK & OK \\  
+\hline
+FR-01-005 & OK & OK & OK \\  
+\hline
+\end{tabular}
+\end{center}
+\caption{Testing Requirements}
+\label{table:6.1}
+\end{table}
+
+\section{\textbf{Results}}
+
+Following is the simulation of the PID controller along with the system ~\ref{fig:figure8}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 7 in]
+  {figure8.jpg}
+    \caption{ simulation of the PID controller}
+    \label{fig:figure8}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+We set the temperature range of the whole process by tapping the blue block temp range max block. Then by double tapping the PROCESS block we can set the starting value and the stopping value of the PID controller, cold water is the initial value of the temperature and hot water is the maximum set value of the temperature, and the last two options are for controlling the flow of water or oil as shown in figure ~\ref{fig:figure9}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure9.jpg}
+    \caption{The flow of water or oil }
+    \label{fig:figure9}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+We used real time pacer block to see the real time simulation of the whole process.
+
+\vspace{3mm}
+By starting simulation we can visualize the results graphs through scopes, the white scope shows the error i.e. the difference between the maximum range value and the cold water (initial value) of the cold fluid and the green scope shows how the temperature reaches its set point and stops the process of heating the oil furthermore shown in figure~\ref{fig:figure10}
+
+\begin{figure}[H]
+  \begin{centering}    
+    \includegraphics[width = 5 in]
+  {figure10.jpg}
+    \caption{output}
+    \label{fig:figure10}       % Give a unique label
+  \end{centering}
+\end{figure}
+
+
+
+
+\newpage
+\chapter{\textbf{Conclusion and Future Work}}
+
+In this project, we have investigated and developed the idea of making a low cost and efficient system for the up gradation and digitization of this test bench. The main purpose of our project is to reduce human effort and we have made this system easier for the user to operate the machine, therefore every newbie can easily operate and control the machine’s system. In this machine we have used PID with touch buttons on the front panel with various functions. So after this up gradation there isn’t any need of a caretaker to stand in front of the machine all the time. The machine will simply stop the heater at the desired time and will blow an alarm or any indication light to inform the workers to proceed further with the lubrication process of the engine. 
+
+\textbf{Future Developments:}
+
+There is a possible chance of further development in the machine. So that we can improve the chances of more reliability and ease. 
+
+\begin{itemize}
+\item We can connect a GSM module using Arduino to control the machine with the computer using the internet technology. We can make a server for the machine which will directly connect the machine with the computer system and we can thus control the machine and quality of the output product by just one click
+
+\item We can control the speed of the both motors, speed of the oil furnace, pressure of the oil pipes and load on the machine by up grading further it with the computer system using the modern techniques of the Arduino and FPGA.
+\end{itemize}
+
+%\newpage
+%\chapter{\textbf{References}}
+
+%[1] Wanjari, Nikam, Gaudase, Radhkar, 2018, Design and manufacturing of fully automated solar grass cutter, International Journal for Research in Applied Science and Engineering Technology, Volume 6, Issue 6, June 2018
+
+%[2] Patil, Gawade, Golam, Kajale, Yelave, 2018, Smart solar grass cutter with sprinkler, International Journal for Research in Applied Science and Engineering Technology, Volume 4, Issue 3, March 2018
+
+\end{document}
